@@ -1,5 +1,7 @@
 import { SiteShell } from "./SiteShell";
-import type { Locale } from "@/lib/i18n";
+import { alternateUrls, type Locale } from "@/lib/i18n";
+import { canonicalFor } from "@/lib/seo";
+import type { Metadata } from "next";
 
 const copy: Record<string, { en: { title: string; body: string }; fr: { title: string; body: string } }> = {
   privacy: {
@@ -43,6 +45,32 @@ const copy: Record<string, { en: { title: string; body: string }; fr: { title: s
     },
   },
 };
+
+const BRAND = { en: "Free AI Humanizer", fr: "Compteur de Mots Gratuit" } as const;
+
+export function buildLegalMetadata(locale: Locale, page: string): Metadata {
+  const c = copy[page]?.[locale] ?? copy.privacy.en;
+  const path = locale === "fr" ? `/fr/${page}/` : `/${page}/`;
+  const canon = canonicalFor(path);
+  return {
+    title: `${c.title} | ${BRAND[locale]}`,
+    alternates: {
+      canonical: canon,
+      languages: alternateUrls(page),
+    },
+    openGraph: {
+      title: `${c.title} | ${BRAND[locale]}`,
+      url: canon,
+      type: "website",
+      images: [{ url: "/og.png", width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image" as const,
+      title: `${c.title} | ${BRAND[locale]}`,
+      images: ["/og.png"],
+    },
+  };
+}
 
 export function LegalPage({ locale, page }: { locale: Locale; page: string }) {
   const c = copy[page]?.[locale] ?? copy.privacy.en;
