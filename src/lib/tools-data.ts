@@ -169,11 +169,12 @@ Paste blog posts, emails, essays, or product copy from any AI assistant. Choose 
 
 Built by Gentil M. in Kigali for the web-free.site network. Humanizer logic adapted from TidyText; additional AI-phrase patterns credited to harshaneel/humanize (MIT).`,
     faqs: [
-      { q: "Is Free AI Humanizer really free?", a: "Yes. No subscription and no API key. Optional ads support hosting." },
-      { q: "Does my text leave my device?", a: "No. Humanizing runs entirely in JavaScript in your browser." },
-      { q: "Which AI tools does it work with?", a: "Any English AI draft: ChatGPT, Claude, Gemini, Copilot, and others." },
-      { q: "What are the tone options?", a: "Natural (balanced), Casual, Friendly, and Professional (formal paraphrase without informal slips)." },
-      { q: "Can it beat AI detectors?", a: "It improves natural flow but cannot guarantee detector scores. Edit and add your own details." },
+      { q: "Is Free AI Humanizer really free?", a: "Yes. There is no subscription, no API key, and no sign-up. Optional ads help cover hosting." },
+      { q: "Does my text leave my device?", a: "No. Humanizing runs entirely in JavaScript in your browser after the page loads. We do not receive your paste." },
+      { q: "Which AI tools does it work with?", a: "Any English AI draft from ChatGPT, Claude, Gemini, Copilot, or similar assistants." },
+      { q: "What are the tone options?", a: "Natural (balanced), Casual, Friendly, and Professional, which keeps formal paraphrase without informal contractions." },
+      { q: "Can it beat AI detectors?", a: "No tool can guarantee that. It improves readability and removes common AI phrasing; you should still edit and add your own details." },
+      { q: "Do I need to install an app or extension?", a: "No. Open this page in a modern browser, paste your text, and click Humanize. It works on desktop and mobile." },
     ],
   },
   fr: {

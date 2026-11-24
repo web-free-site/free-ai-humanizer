@@ -1,6 +1,7 @@
 import { SiteShell } from "./SiteShell";
 import { AiHumanizer } from "./AiHumanizer";
 import { ContentSection } from "./ContentSection";
+import { HomeSeoContent } from "./HomeSeoContent";
 import type { Locale } from "@/lib/i18n";
 import { alternateUrls, t } from "@/lib/i18n";
 import { canonicalFor, jsonLdApp, jsonLdBreadcrumb, jsonLdFaq } from "@/lib/seo";
@@ -62,7 +63,11 @@ export function ToolPageView({
 
       <AdSlot slot="banner728x90" className="my-8 hidden sm:flex" />
 
-      <ContentSection body={meta.body} faqs={meta.faqs} faqTitle={m.faq} />
+      {isHome && locale === "en" ? (
+        <HomeSeoContent faqs={meta.faqs} faqTitle={m.faq} />
+      ) : (
+        <ContentSection body={meta.body} faqs={meta.faqs} faqTitle={m.faq} />
+      )}
 
       <section className="mt-12">
         <h2 className="font-display text-xl text-forest mb-3">{m.related}</h2>
